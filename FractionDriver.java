@@ -2,10 +2,9 @@ public class FractionDriver {
     public static void main(String[] args) {
         Fraction f1 = new Fraction();
         Fraction f2 = new Fraction(1, 2);
-        Fraction f3 = new Fraction("101/100");
+        Fraction f3 = new Fraction(2, 3);
+        Fraction f4 = new Fraction(2, 4);
 		
-		System.out.println(f3);
-		System.out.println(f2.toDouble());
-        System.out.println(f2.getNumerator() + "/" + f2.getDenominator());
+		System.out.println(Fraction.mult(f2, f3));
     }
 }

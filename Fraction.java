@@ -61,4 +61,28 @@ public class Fraction {
             System.out.println("Error: denominator can't be 0");
         }
     }
+    
+    public static Fraction mult(Fraction a, Fraction b){
+		int n = a.numerator*b.numerator;
+		int d = a.denominator*b.denominator; 
+		Fraction c = new Fraction(n ,d);
+		return a;
+}
+
+	public static int GCF(int a, int b){
+		while (a!=b){
+			while (a>b){
+				a -= b;
+			} while (b<a){
+				b -= a;
+			}
+		} return a;
+				
+}
+
+	public void reduce(Fraction a){
+		int gcf = GCF(a.numerator, a.denominator);
+		numerator = numerator/gcf;
+		denominator = denominator/gcf;
+}
 }
