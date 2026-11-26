@@ -1,11 +1,17 @@
+import java.util.Random;
+
 public class Fraction {
     // instance variables (attributes, fields)
     private int numerator, denominator;
 
     // constructor
-    public Fraction() { // default
-        numerator = 1;
-        denominator = 1;
+    public static Fraction randomF() { // default
+		Random random = new Random();
+        int n = random.nextInt(9)+1;
+        int d = random.nextInt(9)+1;
+        Fraction c = new Fraction(n,d);
+        return c;
+        
     }
 
     public Fraction(int n, int d) { // parameterized constructor
