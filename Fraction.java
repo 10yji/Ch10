@@ -68,26 +68,57 @@ public class Fraction {
         }
     }
     
+    public static Fraction add(Fraction a, Fraction b){
+		int n = a.numerator*b.denominator+b.numerator*a.denominator;
+		int d = a.denominator*b.denominator;
+		Fraction c = new Fraction(n, d);
+		c.reduce();
+		return c;
+	}
+    
+    public static Fraction subtract(Fraction a, Fraction b){
+		int n = a.numerator*b.denominator-b.numerator*a.denominator;
+		int d = a.denominator*b.denominator;
+		Fraction c = new Fraction(n, d);
+		c.reduce();
+		return c;
+	}
+    
     public static Fraction mult(Fraction a, Fraction b){
 		int n = a.numerator*b.numerator;
 		int d = a.denominator*b.denominator; 
 		Fraction c = new Fraction(n ,d);
-		return a;
+		c.reduce();
+		return c;
+}
+
+    public static Fraction divide(Fraction a, Fraction b){
+		int n = a.numerator*b.denominator;
+		int d = a.denominator*b.numerator; 
+		Fraction c = new Fraction(n ,d);
+		c.reduce();
+		return c;
 }
 
 	public static int GCF(int a, int b){
+		if (a<0){
+			a*=-1;
+		}
+		if (b<0){
+			b*=-1;
+		}
 		while (a!=b){
 			while (a>b){
 				a -= b;
-			} while (b<a){
+			} while (b>a){
 				b -= a;
 			}
 		} return a;
 				
 }
 
-	public void reduce(Fraction a){
-		int gcf = GCF(a.numerator, a.denominator);
+	public void reduce(){
+		int gcf = GCF(numerator, denominator);
 		numerator = numerator/gcf;
 		denominator = denominator/gcf;
 }
